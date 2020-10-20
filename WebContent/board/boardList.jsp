@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,14 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+	#tbl td{
+		height: 10px;
+		border: 1px solid black;
+		padding: 0 10px;
+		text-align: center;
+	}
+</style>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -37,5 +46,27 @@
 		    </ul>
 		  </div>
 		</nav>
+		
+		<table id="tbl">
+			<tr>
+				<td>NUM</td>
+				<td>TITLE</td>
+				<td>WRITER</td>
+				<td>CONTENTS</td>
+				<td>REGDATE</td>
+				<td>HIT</td>
+			</tr>
+			
+			<c:forEach items="${list}" var="dto">
+				<tr>
+					<td>${dto.num}</td>
+					<td>${dto.title}</td>
+					<td>${dto.writer}</td>
+					<td>${dto.contents}</td>
+					<td>${dto.regdate}</td>
+					<td>${dto.hit}</td>
+				</tr>
+			</c:forEach>
+		</table>
 </body>
 </html>
